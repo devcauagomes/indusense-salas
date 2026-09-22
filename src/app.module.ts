@@ -14,6 +14,9 @@ import { Sensor } from './sensors/entities/sensor.entity';
       ssl: {
         rejectUnauthorized: false,
       },
+      extra: {
+        family: 4, // Força o uso de IPv4, evitando o erro ENETUNREACH
+      },
     }),
     SalasModule,
   ],
