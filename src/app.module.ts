@@ -8,14 +8,11 @@ import { Sensor } from './sensors/entities/sensor.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      url: process.env.DATABASE_URL || 'postgresql://postgres.jluuhlexkpdziuoiaswv:aqulesdevs2@aws-0-br-south-1.pooler.supabase.com:6543/postgres',
+      url: process.env.DATABASE_URL,
       entities: [Sala, Sensor],
       synchronize: true,
       ssl: {
         rejectUnauthorized: false,
-      },
-      extra: {
-        family: 4,
       },
     }),
     SalasModule,
