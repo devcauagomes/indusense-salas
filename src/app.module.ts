@@ -7,10 +7,13 @@ import { Sensor } from './sensors/entities/sensor.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'db.sqlite',
+      type: 'postgres',
+      url: process.env.DATABASE_URL || 'postgresql://postgres:aqulesdevs2@db.jluuhlexkpdziuoiaswv.supabase.co:5432/postgres',
       entities: [Sala, Sensor],
       synchronize: true,
+      ssl: {
+        rejectUnauthorized: false,
+      },
     }),
     SalasModule,
   ],
